@@ -1,40 +1,34 @@
 import React from 'react';
 
-// import external data file
-import data from './data';
+const List = ({people}) => {
 
+  return(
 
-
-const List = () => {
-
-
-  // set useState for birthday data
-  const [birthdayList, setBirthdayList] = React.useState(data);
-
-  return (
+    // define component
     <>
-    <div className="container">
-    <h3>{birthdayList.length} Birthdays Today</h3>
-    
-    {birthdayList.map((birthdays) => {
+      {people.map((person) => {
 
-      return <section className="person" key={birthdays.id}>
+         // deconstruct object
+        const {id, image, name, age } = person;
 
-      <img src={birthdays.image} alt="birthday profile"/>
-      <div>
-      <h4>{birthdays.name}</h4>
-      <p>{birthdays.age} years</p>
-      </div>
+        return(
+        <section key={id} className="person">
+
+        <img src={image} alt={name} />
+          <div>
+            <h4>{name}</h4>
+            <p>{age} years</p>
+          </div>
+
+        </section>
+        );
+
+      })}
     
-      </section>
- 
-   
-    })}
-    
-  <button onClick={() => setBirthdayList([])}> Clear All</button>
-  </div>
     </>
+
   );
+
 };
 
 export default List;

@@ -1,24 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+// import color component
+import Color from './Color';
+
+// import values.js api for color selection
+import Values from 'values.js';
 
 function App() {
+
+  const [color, setColor] = useState('');
+
+  const [error, setError] = useState(false);
+
+  const [colorList, setColorList] = useState([]);
+
+  // function to handle the users input
+  const handleSubmit = (e) =>{
+
+    e.preventDefault();
+    
+    // check if the value is valid
+    try{
+    
+      let colors = new Values(color).all(10);
+      setColorList(colors);
+
+    } catch(error){
+
+      setError(true);
+      console.log(error);
+
+    }
+
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+    <>
+      
+    <h2>Color Palette Generator</h2>
+    
+  {/* form for color chosen by user */}
+    <section className="container">
+
+    <form onSubmit={handleSubmit}>
+
+      <input type="text" value={color} onChange={(e) =>setColor(e.target.value)} placeholder="#87a7ca" className={`${error ? 'error' : null}`}/>
+
+    <button type="submit" className="btn">Submit</button>
+    </form>
+
+    {/* Display color results */}
+    </section>
+    <section className="colors">
+      {colorList.map((color, index)=> {
+        
+        return <Color key={index} {...color} index={index} />
+
+      })}
+     
+
+    </section>
+
+    </>
   );
 }
 

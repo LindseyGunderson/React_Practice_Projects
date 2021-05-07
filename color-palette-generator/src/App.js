@@ -56,7 +56,7 @@ function App() {
     <section className="colors">
       {colorList.map((color, index)=> {
         
-        return <Color key={index} {...color} index={index} />
+        return <Color key={index} {...color} index={index} hexColor = {color.hex}/>
 
       })}
      

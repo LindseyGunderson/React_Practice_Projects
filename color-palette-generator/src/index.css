@@ -12,6 +12,35 @@ code {
     monospace;
 }
 
+h2, .container {
+
+  text-align: center;
+  padding: 1rem 0;
+  
+}
+
+input {
+
+  border: solid 1px #000;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+
+}
+
+
+.btn {
+  background-color: #87A7CA;
+  color: #FFF;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  border-color: transparent;
+  text-transform: capitalize;
+  cursor: pointer;
+  
+}
+
 .error {
 
   border-color: red;
@@ -27,9 +56,29 @@ code {
 
 .color {
 
-  padding: 1rem 2rem;
+  margin: 0.5rem 0.8rem;
+  padding: 2rem 2rem;
   cursor: pointer;
   font-size: 1rem;
   text-transform: none;
+  border: solid 1px black;
 
+}
+
+.hex-color {
+
+  text-align: center;
+
+}
+
+.light-text {
+
+  color: #fff;
+}
+
+.alert {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
 }

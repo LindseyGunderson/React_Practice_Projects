@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = ({setInputText, inputText, todos, setTodos}) => {
+const Form = ({setInputText, inputText, todos, setTodos, setStatus}) => {
 
     const inputTextHandler = (e) => {
 
@@ -26,6 +26,11 @@ const Form = ({setInputText, inputText, todos, setTodos}) => {
         setInputText('');
     }
 
+    // function to handle the status change for the filter
+    const statusHandler = (e) => {
+
+        setStatus(e.target.value);
+    }
 
     return(
 

@@ -11,7 +11,12 @@ const TodoList = ({todos, setTodos}) => {
             <ul className="todo-list">
                 
                 {todos.map((todo) =>(
-                    <Todo text={todo.text} key={todo.id} setTodos={setTodos} todos={todos}/>
+                    <Todo 
+                    text={todo.text} 
+                    key={todo.id} 
+                    setTodos={setTodos} 
+                    todos={todos}
+                    todo={todo}/>
                 ))}
 
             </ul>

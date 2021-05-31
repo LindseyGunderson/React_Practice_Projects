@@ -14,6 +14,8 @@ function App() {
   // store our todos in an array of objets
   const [todos, setTodos] = useState([]);
 
+  const [status, setStatus] = useState('all');
+
 
   return (
 
@@ -23,7 +25,11 @@ function App() {
       <h1>Todo List</h1>
     </header>
 
-    <Form inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText}/>
+    <Form inputText={inputText} 
+    todos={todos} 
+    setTodos={setTodos} 
+    setInputText={setInputText}
+    setStatus={setStatus}/>
     <TodoList setTodos={setTodos} todos={todos}/>
     
     </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Form = ({setInputText, inputText, todos, setTodos}) => {
 
     const inputTextHandler = (e) => {
@@ -22,6 +21,9 @@ const Form = ({setInputText, inputText, todos, setTodos}) => {
 
             }
         ]);
+
+        // reset to default state
+        setInputText('');
     }
 
 
@@ -30,7 +32,7 @@ const Form = ({setInputText, inputText, todos, setTodos}) => {
         <form>
 
         {/* Form inputs */}
-        <input onChange={inputTextHandler} type="text" className="todo-input"></input>
+        <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input"></input>
         <button className="todo-button" type="submit" onClick={submitTodoHandler}><i className="fas fa-plus-square"></i></button>
 
 
